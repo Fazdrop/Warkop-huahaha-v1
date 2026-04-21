@@ -1,0 +1,490 @@
+/* Custom CSS for Warkop Huahaha */
+/* Variables for colors */
+:root {
+  --primary-brown: #5d4037;
+  --dark-brown: #3e2723;
+  --light-brown: #d7ccc8;
+  --black: #1a1a1a;
+  --white: #fdfdfd;
+
+  /* Transitions */
+  --transition: all 0.3s ease-in-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  background-color: var(--white);
+  color: var(--black);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-wrapper {
+  padding: 80px 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Typography */
+.section-title {
+  font-size: 2.5rem;
+  color: var(--dark-brown);
+  margin-bottom: 10px;
+}
+
+.title-underline {
+  height: 4px;
+  width: 60px;
+  background-color: var(--primary-brown);
+  margin-bottom: 30px;
+  border-radius: 2px;
+}
+
+.title-underline.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Button */
+.btn-primary {
+  display: inline-block;
+  padding: 14px 32px;
+  background-color: var(--primary-brown);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  border: 2px solid var(--primary-brown);
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  color: var(--light-brown);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--white);
+  transition: var(--transition);
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: var(--white);
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  background-color: var(--white);
+}
+
+/* Home Section */
+.home-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("../img/warkop-huahaha.png") no-repeat center center/cover;
+  text-align: center;
+  color: var(--white);
+  z-index: 1;
+}
+
+.home-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Darken background slightly to increase text readability */
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(248, 245, 242, 0) calc(100% - 30px),
+      #f8f5f2 100%
+    ),
+    linear-gradient(to right, rgba(26, 26, 26, 0.8), rgba(62, 39, 35, 0.5));
+  z-index: -1;
+}
+
+.home-content {
+  max-width: 800px;
+  padding: 0 20px;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeIn 1.2s forwards 0.5s ease;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  color: var(--white);
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  color: var(--light-brown);
+}
+
+/* About Section */
+.about-section {
+  background-color: #f8f5f2;
+  padding: 100px 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-image {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  /* Set 4:3 Aspect Ratio */
+  aspect-ratio: 4 / 3;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+  transform: scale(1.05);
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* Service Section */
+.service-section {
+  background-color: #f8f5f2; /* Subtle background for contrast */
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.service-card {
+  background-color: var(--white);
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: var(--transition);
+  border-bottom: 4px solid transparent;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  border-bottom: 4px solid var(--primary-brown);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  color: var(--dark-brown);
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  color: #666;
+}
+
+/* Contact Section */
+.contact-section {
+  background-color: #f8f5f2;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 50px;
+  margin-top: 50px;
+}
+
+.contact-info h3 {
+  font-size: 1.8rem;
+  color: var(--dark-brown);
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  margin-bottom: 30px;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.contact-list {
+  list-style: none;
+}
+
+.contact-list li {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  color: var(--black);
+  line-height: 1.6; /* Tambahan line-height agar teks panjang nyaman dibaca */
+}
+
+.contact-map {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Footer Section */
+.footer {
+  background-color: var(--black);
+  color: var(--light-brown);
+  text-align: center;
+  padding: 40px 0;
+  border-top: 5px solid var(--primary-brown);
+}
+
+.footer p {
+  font-size: 1rem;
+}
+
+/* Tampilan Desktop Khusus: Merapatkan jarak antara lencana jam buka dan Contact */
+@media (min-width: 992px) {
+  .service-section .section-wrapper {
+    padding-bottom: 30px;
+  }
+  .contact-section .section-wrapper {
+    padding-top: 20px;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+  /* Memberikan jarak khusus untuk tablet layaknya Asus Zenfold agar tidak dempet */
+  .container {
+    padding: 0 50px;
+  }
+
+  .nav-container {
+    padding: 20px 50px;
+  }
+
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image {
+    order: -1;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  /* Membuat tulisan Tentang Kami berada di tengah setiap kali layar collapse jadi 1 baris */
+  .about-text {
+    text-align: center;
+  }
+
+  .about-text .title-underline {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-links {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background-color: rgba(30, 30, 30, 0.98);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    padding: 40px 0;
+    gap: 0;
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+  }
+
+  .home-section {
+    height: auto;
+    min-height: 60vh;
+    padding: 100px 20px 60px 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--black);
+    align-items: center; /* Kembalikan sifat text menimpa gambar di tengah */
+    justify-content: center;
+  }
+
+  .home-overlay {
+    display: block; /* Aktifkan kembali overlay agar teks HTML terbaca jelas */
+  }
+
+  .home-content {
+    margin-top: 0;
+    padding: 0;
+    z-index: 2;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  /* Tambahan padding agar jarak di HP tidak terlalu mepet ke ujung layar */
+  .container {
+    padding: 0 30px;
+  }
+
+  /* Memberi jarak atas ekstra pada judul Contact agar tidak mepet dengan Service Card di hp */
+  .contact-section .section-title {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+}
